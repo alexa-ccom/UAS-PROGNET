@@ -2,7 +2,7 @@
   <div class="max-w-[1400px] mx-auto px-4 py-3 flex justify-between items-center">
     <!-- Logo -->
      <a href="index.php">
-       <h1 class="text-xl font-bold text-gray-800">Apple</h1>
+       <h1 class="text-xl font-bold text-gray-800">Aldyné</h1>
      </a>
 
     <!-- Desktop Menu -->
