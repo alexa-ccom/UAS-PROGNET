@@ -8,7 +8,7 @@ include("middleware/cartMiddleware.php");
 <div class="mt-24 max-w-[1400px] mx-auto px-4 ">
     <h2 class="text-3xl font-bold mb-6">Berbagai Produk.</h2>
 
-    <div class="space-y-4">
+    <div class="space-y-6">
         <div id="mycart">
             <?php
                 $items = getCart();
@@ -53,6 +53,11 @@ include("middleware/cartMiddleware.php");
                 <?php 
                 } 
                 ?>
+        </div>
+        <div class="flex items-center justify-end">
+            <div>
+                <a href="checkout.php" class="bg-blue-300 p-3 rounded-xl  mt-10">Checkout</a>
+            </div>
         </div>
     </div>
 </div>
