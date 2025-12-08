@@ -9,12 +9,10 @@
             d="M5 13l4 4L19 7" />
         </svg>
 
-        <!-- Message -->
         <span class="text-sm font-medium">
             <?= $_SESSION['message'] ?>
         </span>
 
-        <!-- Close button -->
         <button onclick="document.getElementById('toast-success').remove()" 
             class="ml-auto text-green-700 hover:text-green-900">
             ✕
@@ -22,7 +20,6 @@
     </div>
 
     <script>
-        // Auto hide after 4 seconds
         setTimeout(() => {
             const toast = document.getElementById('toast-success');
             if (toast) toast.remove();
@@ -33,5 +30,10 @@
     unset($_SESSION['message']);
 endif;
 ?>
+
+<script src="assets/js/jquery-3.7.1.min.js"></script>
+<script src="assets/js/custom.js"></script>
+
+
 </body>
 </html>

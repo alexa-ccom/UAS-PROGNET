@@ -13,7 +13,7 @@ if (isset($_GET['product'])) {
     if ($product) {
         ?>
         <div class="mt-24 max-w-[1400px] mx-auto px-4 pb-12">
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 gap-8 product-data">
                 
                 <!-- Left Side - Product Image -->
                 <div class="space-y-4">
@@ -77,14 +77,14 @@ if (isset($_GET['product'])) {
                     </div>
 
                     <div>
-                        <span>-</span>
-                        <input type="text">
-                        <span>+</span>
+                        <button class="decrement_btn">-</button>
+                        <input type="text" class='qty-input' value="1">
+                        <button class="increment_btn">+</button>
                     </div>
 
                     <!-- Action Buttons -->
                     <div class="space-y-3">
-                        <button class="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-4 px-6 rounded-lg transition">
+                        <button class="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-4 px-6 rounded-lg transition add-to-cart" value="<?= $product['id_produk'] ?>">
                             Add to Cart
                         </button>
                         <button class="w-full bg-white hover:bg-gray-50 text-gray-900 font-semibold py-4 px-6 rounded-lg border-2 border-gray-900 transition">

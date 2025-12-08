@@ -61,11 +61,13 @@ else if (isset($_POST['login_btn'])) {
         $_SESSION['auth'] = true;
 
         $userdata = mysqli_fetch_array($login_query_run);
+        $userid = $userdata['id_user'];
         $username = $userdata['nama_user'];
         $useremail = $userdata['email'];
         $role = $userdata['role'];
 
         $_SESSION['auth_user'] = [
+            'id_user' => $userid,
             'nama_user' => $username,
             'email' => $useremail
         ];
