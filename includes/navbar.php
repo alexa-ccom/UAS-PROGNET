@@ -16,7 +16,7 @@
           ?>
             <li><a href="cart.php" class="hover:text-blue-600">Cart</a></li>
             <li><a href="logout.php" class="hover:text-blue-600">Logout</a></li>
-            <li><a href="" class="hover:text-blue-600">
+            <li><a href="profile.php" class="hover:text-blue-600">
               <?= $_SESSION['auth_user']['nama_user']; ?>
             </a></li>
           <?php

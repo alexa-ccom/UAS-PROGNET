@@ -1,5 +1,7 @@
 <?php include('../middleware/adminMiddleware.php') ?>
 <?php include('template/header.php');?>
+<?php include('functions/adminFunctions.php') ?>
+
 
 
 

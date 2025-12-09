@@ -40,7 +40,7 @@ $(document).ready(function() {
 
         $.ajax({
             method: "POST",
-            url: "functions/handlecart.php",
+            url: "proses/proses-cart.php",
             data: {
                 "id_produk": prod_id,
                 "prod_qty": qty,
@@ -59,14 +59,16 @@ $(document).ready(function() {
     })
 
     $(document).on('click', '.updateQty', function() {
-        
+
         var qty = $(this).closest('.product-data').find('.qty-input').val();
         var prod_id = $(this).closest('.product-data').find('.prodid').val();
+        var cart_id = $(this).closest('.product-data').find('.cartid').val();
 
         $.ajax({
             method: "POST",
-            url: "functions/handlecart.php",
+            url: "proses/proses-cart.php",
             data: {
+                "id_cart": cart_id,
                 "id_produk": prod_id,
                 "prod_qty": qty,
                 "scope": "update"
@@ -76,7 +78,7 @@ $(document).ready(function() {
             }
         });
 
-    })
+    });
 
     $(document).on('click', '.deleteItem', function() {
         
@@ -85,7 +87,7 @@ $(document).ready(function() {
 
         $.ajax({
             method: "POST",
-            url: "functions/handlecart.php",
+            url: "proses/proses-cart.php",
             data: {
                 "id_cart": cart_id,
                 "scope": "delete"

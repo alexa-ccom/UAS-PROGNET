@@ -2,12 +2,15 @@
 
 session_start(); 
 include("includes/header.php");
-include("functions/userFunction.php");
+include("config/class-user.php"); 
+
+$user = new User();
 
 if (isset($_GET['category'])) {
     $category_slug = $_GET['category'];
-    $category_data = getSlugActive("tb_kategori", $category_slug);
-    $category = mysqli_fetch_array($category_data);
+
+    // Ambil data kategori pakai class
+    $category = $user->getSlugActive("tb_kategori", $category_slug);
 
     if ($category) {
         $cid = $category['id_kategori'];
@@ -18,9 +21,11 @@ if (isset($_GET['category'])) {
 
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 text-center">
                 <?php
-                    $products = getProductByCategory($cid);
+                
+                    // Ambil product by category
+                    $products = $user->getProductByCategory($cid);
 
-                    if (mysqli_num_rows($products) > 0) {
+                    if (!empty($products)) {
                         foreach ($products as $item) {
                 ?>
                     <a href="product-view.php?product=<?= $item['slug'] ?>">
@@ -63,8 +68,6 @@ if (isset($_GET['category'])) {
 } else {
     echo "<div class='mt-20 max-w-[1400px] mx-auto px-4'>";
     echo "Something went wrong";
-
-
 }
 
 include("includes/footer.php");

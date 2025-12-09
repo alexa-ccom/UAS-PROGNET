@@ -15,7 +15,7 @@ include("includes/header.php")
 <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100">
 
 
-  <form class="bg-white p-6 rounded-lg shadow-md w-full max-w-sm space-y-4" action="functions/authcode.php" method="POST">
+  <form class="bg-white p-6 rounded-lg shadow-md w-full max-w-sm space-y-4" action="proses/proses-auth-register.php" method="POST">
     <h2 class="text-2xl font-bold text-gray-800 text-center">Register</h2>
 
     <!-- Name -->
