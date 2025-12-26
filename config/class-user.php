@@ -328,16 +328,31 @@ class User extends Database {
     }
 
         // 1. Ambil data order berdasarkan tracking number
-    public function getOrderByTracking($tracking_no, $userId) {
-        $query = "SELECT * FROM tb_orders WHERE no_tracking = ? AND id_user = ? LIMIT 1";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("si", $tracking_no, $userId);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $data = $result->fetch_assoc();
-        $stmt->close();
-        return $data ?: false;
-    }
+public function getOrderByTracking($tracking_no, $userId) {
+
+    $query = "SELECT 
+                o.*,
+                a.alamat AS alamat_lengkap,
+                a.kota,
+                a.provinsi
+              FROM tb_orders o
+              JOIN tb_alamat a ON o.alamat = a.id_alamat
+              WHERE o.no_tracking = ? AND o.id_user = ?
+              LIMIT 1";
+
+    $stmt = $this->conn->prepare($query);
+    if (!$stmt) return false;
+
+    $stmt->bind_param("si", $tracking_no, $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $data = $result->fetch_assoc();
+    $stmt->close();
+
+    return $data ?: false;
+}
+
 
     //  Ambil semua item dari order (INI YANG DIPERBAIKI)
     public function getOrderItemsByTracking($tracking_no, $userId) {

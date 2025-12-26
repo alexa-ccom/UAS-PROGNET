@@ -45,10 +45,15 @@ if (!$order) {
                     <p><span class="font-semibold text-gray-600">Nama:</span> <?= htmlspecialchars($order['nama_user']) ?></p>
                     <p><span class="font-semibold text-gray-600">Email:</span> <?= htmlspecialchars($order['email']) ?></p>
                     <p><span class="font-semibold text-gray-600">Telepon:</span> <?= htmlspecialchars($order['no_telp']) ?></p>
-                    <p><span class="font-semibold text-gray-600">Alamat:</span><br>
-                        <span class="text-gray-700"><?= nl2br(htmlspecialchars($order['alamat'])) ?><br>
-                        Kode Pos: <?= $order['pincode'] ?></span>
+                    <p>
+                        <span class="font-semibold text-gray-600">Alamat:</span><br>
+                        <span class="text-gray-700">
+                            <?= htmlspecialchars($order['alamat_lengkap']) ?><br>
+                            <?= htmlspecialchars($order['kota']) ?>, <?= htmlspecialchars($order['provinsi']) ?><br>
+                            Kode Pos: <?= htmlspecialchars($order['pincode']) ?>
+                        </span>
                     </p>
+
                 </div>
             </div>
 

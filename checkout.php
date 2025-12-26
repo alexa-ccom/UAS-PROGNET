@@ -3,6 +3,12 @@ session_start();
 include("includes/header.php");
 include("validator/user-validator.php");        
 include("middleware/clientMiddleware.php");
+require_once "config/class-address.php";
+
+$user_id = $_SESSION['auth_user']['id_user'];
+
+$addressObj = new Address();
+$addresses  = $addressObj->getAddressByUser($user_id);
 
 $items = getCart();
 $totalPrice = 0;
@@ -27,12 +33,49 @@ foreach ($items as $citem) {
         <div class="bg-white p-8 rounded-xl shadow">
             <h3 class="text-2xl font-bold mb-6">Data Pengiriman</h3>
             <div class="space-y-4">
-                <input type="text" name="nama_user" placeholder="Nama Lengkap" class="w-full p-3 border rounded-lg" required>
-                <input type="email" name="email" placeholder="Email" class="w-full p-3 border rounded-lg" required>
-                <input type="text" name="no_telp" placeholder="No Telepon" class="w-full p-3 border rounded-lg" required>
-                <input type="text" name="pincode" placeholder="Kode Pos" class="w-full p-3 border rounded-lg" required>
-                <textarea name="alamat" placeholder="Alamat Lengkap" rows="4" class="w-full p-3 border rounded-lg" required></textarea>
+
+                <input type="text" name="nama_user" placeholder="Nama Lengkap"
+                    class="w-full p-3 border rounded-lg" required>
+
+                <input type="email" name="email" placeholder="Email"
+                    class="w-full p-3 border rounded-lg" required>
+
+                <input type="text" name="no_telp" placeholder="No Telepon"
+                    class="w-full p-3 border rounded-lg" required>
+
+                <input type="text" name="pincode" placeholder="Kode Pos"
+                    class="w-full p-3 border rounded-lg" required>
+
+                <!-- ALAMAT -->
+
+                <div class="flex flex-col gap-1">
+                    <label class="font-medium text-gray-700">Pilih Alamat</label>
+
+                    <select name="alamat" required
+                        class="border border-gray-300 rounded-lg px-3 py-2 bg-white">
+
+                        <option value="">-- Pilih Alamat --</option>
+
+                        <?php if (!empty($addresses)): ?>
+                            <?php foreach ($addresses as $addr): ?>
+                                <option value="<?= $addr['id_alamat'] ?>">
+                                    <?= $addr['alamat'] ?>, <?= $addr['kota'] ?>, <?= $addr['provinsi'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <option disabled>Belum ada alamat</option>
+                        <?php endif; ?>
+
+                    </select>
+
+                    <a href="add-address.php" class="text-sm text-blue-600 mt-2">
+                        + Tambah alamat baru
+                    </a>
+                </div>
+
+
             </div>
+
         </div>
 
         <!-- KANAN: RINGKASAN -->

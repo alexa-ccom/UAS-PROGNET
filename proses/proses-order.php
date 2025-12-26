@@ -70,6 +70,9 @@ foreach ($cartItems as $item) {
     $stmt2->close();
 }
 
+// 3. Kosongkan keranjang
+$con->query("DELETE FROM tb_carts WHERE id_user = " . (int)$userId);
+
 $_SESSION['message'] = "Pesanan berhasil dibuat! Nomor tracking: <strong>$tracking_no</strong>";
 header("Location: ../profile.php");
 exit;

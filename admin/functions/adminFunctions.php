@@ -10,12 +10,33 @@ include('../config/db-config.php');
         return mysqli_query($con, $query);
     }
 
-    function checkTrackingNoValidAdmin($trackingNo){
-        global $con;
-        $query = "SELECT * FROM tb_orders WHERE no_tracking='$trackingNo'";
-        return mysqli_query($con, $query);
+    // function checkTrackingNoValidAdmin($trackingNo){
+    //     global $con;
+    //     $query = "SELECT * FROM tb_orders WHERE no_tracking='$trackingNo'";
+    //     return mysqli_query($con, $query);
 
-    }
+    // }
+
+function checkTrackingNoValidAdmin($trackingNo) {
+    global $con;
+    
+    $trackingNo = mysqli_real_escape_string($con, $trackingNo);
+    
+    $query = "
+        SELECT 
+            o.*,
+            a.alamat AS alamat_lengkap,
+            a.kota,
+            a.provinsi
+        FROM tb_orders o
+        JOIN tb_alamat a ON o.alamat = a.id_alamat
+        WHERE o.no_tracking = '$trackingNo'
+        LIMIT 1
+    ";
+    
+    return mysqli_query($con, $query);
+}
+
 
     function getOrderHistory(){
         global $con;

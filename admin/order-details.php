@@ -51,7 +51,11 @@ $data = mysqli_fetch_array($orderData);
                 <p><span class="font-medium text-gray-600">Email:</span> <?= $data['email'] ?></p>
                 <p><span class="font-medium text-gray-600">No Telp:</span> <?= $data['no_telp'] ?></p>
                 <p><span class="font-medium text-gray-600">Tracking No:</span> <?= $data['no_tracking'] ?></p>
-                <p><span class="font-medium text-gray-600">Alamat:</span> <?= $data['alamat'] ?></p>
+                        <span class="text-gray-700">
+                            <?= htmlspecialchars($data['alamat_lengkap']) ?><br>
+                            <?= htmlspecialchars($data['kota']) ?>, <?= htmlspecialchars($data['provinsi']) ?><br>
+                            Kode Pos: <?= htmlspecialchars($data['pincode']) ?>
+                        </span>
             </div>
         </div>
 

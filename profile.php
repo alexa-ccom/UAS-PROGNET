@@ -41,6 +41,12 @@ $orders  = getOrders();
         <?php endif; ?>
     </div>
 
+    <a href="add-address.php"
+   class="inline-block mt-4 px-4 py-2 bg-black text-white rounded-lg text-sm hover:bg-gray-800 transition">
+    + Tambah Alamat
+</a>
+
+
     <!-- ORDER HISTORY -->
     <div class="bg-white rounded-2xl shadow-lg p-8">
         <h3 class="text-2xl font-bold text-blue-600 mb-6">Riwayat Pesanan</h3>
