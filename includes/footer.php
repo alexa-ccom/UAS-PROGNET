@@ -3,7 +3,7 @@
             <div class="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-slate-500/30 text-slate-500">
                 <div>
                     <a href="/" class="text-4xl font-semibold text-slate-700">
-                        <span class="text-green-600">Aldynè</span>
+                        <img src="assets/img/ALDYN.png" alt="" class="w-48">
                     </a>
                     <p class="max-w-[410px] mt-6 text-sm">Welcome to gocart, your ultimate destination for the latest and smartest gadgets. From smartphones and smartwatches to essential accessories, we bring you the best in innovation — all in one place.</p>
                     <div class="flex items-center gap-3 mt-5">

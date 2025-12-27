@@ -25,5 +25,5 @@
 
 </head>
 
-<body class='bg-gray-50 font-poppins'>
+<body class='bg-gray-100 font-poppins'>
   <?php include("includes/navbar.php") ?>
