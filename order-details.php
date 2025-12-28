@@ -41,7 +41,7 @@ if (!$order) {
 ?>
 
 <div class="min-h-screen pt-28 pb-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- Header -->
         <div class="text-center mb-16">
